@@ -1,0 +1,28 @@
+.page-indicator {
+    overflow: hidden;
+    width: fit-content;
+    margin: 0px auto;
+    padding: 10px;
+}
+
+.page-indicator > div {
+    float: left;
+    width: 30px;
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+    border-radius: 4px;
+    background-color: rgba(0,0,0,0.8);
+    color: white;
+    margin-right: 10px;
+    transition: box-shadow ease-in-out 0.1s;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+
+.page-indicator > div:last-child {
+    margin-right: 0;
+}
+
+.page-indicator > div:hover {
+    box-shadow: 0 3px 10px rgba(0,0,0,0.3);
+}
