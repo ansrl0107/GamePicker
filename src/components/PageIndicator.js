@@ -12,7 +12,7 @@ class PageIndicator extends Component {
                     return (<div
                         key={index}
                         onClick={this.handleClick}
-                        style={{backgroundColor: Number(this.props.value)===Number(value)+Number(1)?'#2F3136':'#4F545C'}}
+                        style={{backgroundColor: Number(this.props.value)===Number(value)+Number(1)?'#212325':'#35393E'}}
                     >{value+1}</div>);
                 })}
             </div>

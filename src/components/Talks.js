@@ -36,14 +36,11 @@ class Talks extends Component {
         })
     }
     loadPosts = () => {
-        console.log(this.state.id);
         const id = Number(this.state.id);
         fetch(`${api.host}/posts?gameID=${id===0?'':id}`)
         .then(res => res.json())
         .then(json => {
-            if (json.status === 'success') {
-                console.log(json);
-                
+            if (json.status === 'success') {                
                 this.setState({
                     posts: json.data.posts
                 })

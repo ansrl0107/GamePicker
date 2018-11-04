@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css?family=Nanum+Gothic');
+
 html {
   	height: 100%;
 }
@@ -5,6 +7,7 @@ html {
 body {
 	height: 100%;
 	margin: 0;
+	font-family: 'Nanum Gothic', sans-serif;
 }
 
 #root {
@@ -21,6 +24,22 @@ a {
 	text-decoration: none;
 	color: inherit;
 	display: block;
+}
+
+/* width */
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+	background-color: #2F3135;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+	background: #212325;
+	border-radius: 5px;
 }
 
 input {
@@ -48,7 +67,9 @@ textarea {
 	resize: none;
 	width: calc(100% - 64px) !important;
 	overflow: scroll;
+	overflow-x: hidden;
 	height: 128px;
+	font: inherit;
 }
 
 header .button {
@@ -59,6 +80,7 @@ nav {
 	width: 288px;
 	background-color: #2F3135;
 	height: 100%;
+	overflow-x: hidden;
 }
 
 nav header {
@@ -89,8 +111,9 @@ nav input#search {
 nav .list {
 	padding: 16px 0;
 	box-sizing: border-box;
-	overflow: scroll;
-    height: calc(100% - 112px);
+	overflow-y: auto;
+	overflow-x: hidden;
+    height: calc(100% - 48px);
 }
 
 nav .item {
@@ -157,7 +180,8 @@ section .list {
 	padding: 16px 0;
 	box-sizing: border-box;
 	height: calc(100% - 48px);
-	overflow: scroll;
+	overflow-y: auto;
+	overflow-x: hidden;
 }
 
 section .item > * {

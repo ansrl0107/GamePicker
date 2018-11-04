@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import api from '../../config/api';
 import Comment from '../Comment';
+import './Read.css'
 
 class Read extends Component {
     state = {
@@ -45,13 +46,15 @@ class Read extends Component {
         return (
             <section>
                 <header>{post.title}</header>
-                <div>
-                    <div>
+                <div className='list'>
+                    <div id='post-content'>
                         {post.content}
                     </div>
+                    <div id='comment'>
                     <Comment
                         baseURL={`${api.host}/posts/${id}`}
                     />
+                    </div>
                 </div>
             </section>
         )

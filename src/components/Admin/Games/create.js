@@ -42,12 +42,13 @@ class Create extends Component {
             } else throw json.data;
         }).catch(console.error);
     }
-    createGame = () => {
+    createGame = () => {        
         const token = sessionStorage.getItem('token');
         fetch(`${api.host}/games`, {
             method: 'POST',
             headers: {
-                'x-access-token': token
+                'x-access-token': token,
+                'Content-Type': 'application/json'
             },
             body: JSON.stringify(this.state.game)
         }).then(res => res.json())
@@ -62,6 +63,22 @@ class Create extends Component {
             game: {
                 ...this.state.game,
                 [e.target.name]: e.target.value
+            }
+        })
+    }
+    handleTags = (list) => {
+        this.setState({
+            game: {
+                ...this.state.game,
+                tags: list.map(item => {return item.value})
+            }
+        })
+    }
+    handlePlatforms = (list) => {
+        this.setState({
+            game: {
+                ...this.state.game,
+                platforms: list.map(item => {return item.value})
             }
         })
     }
@@ -138,6 +155,7 @@ class Create extends Component {
                             isClearable={true}
                             isMulti={true}
                             styles={select_style}
+                            onChange={this.handleTags}
                         />
                         <div className='index'>플랫폼</div>
                         <Select 
@@ -146,6 +164,7 @@ class Create extends Component {
                             isClearable={true}
                             isMulti={true}
                             styles={select_style}
+                            onChange={this.handlePlatforms}
                         />
                     </div>
                 </section>

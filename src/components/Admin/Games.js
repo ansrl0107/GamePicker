@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import api from '../../config/api';
 import Alert from '../Alert';
-import { Redirect } from 'react-router-dom';
 
 class Games extends Component {
     state = {
@@ -10,7 +9,6 @@ class Games extends Component {
         search: '',
         deleteAlert: false,
         delete: false,
-        redirect: false,
         deleteId: undefined
     }
     componentDidMount = () => {
@@ -30,8 +28,6 @@ class Games extends Component {
     deleteGame = (e) => {
         if (this.state.delete) {
             const token = sessionStorage.getItem('token');
-            console.log(this.state.deleteId);
-            /*
             fetch(`${api.host}/games/${this.state.deleteId}`, {
                 method: 'DELETE',
                 headers: {
@@ -40,12 +36,9 @@ class Games extends Component {
             }).then(res => res.json())
             .then(json => {
                 if (json.status === 'success') {
-                    this.setState({
-                        redirect: true
-                    })
+                    this.loadGames()
                 } else throw json.data;
             }).catch(console.error)
-            */
         }
     }
     deleteAlert = (e) => {
@@ -66,43 +59,39 @@ class Games extends Component {
         })
     }
     render() {        
-        const { games,search, redirect, deleteAlert } = this.state;   
-        if (redirect) {
-            return <Redirect to='/admin/games' />
-        } else {         
-            return (
-                <section id='admin-games'>
-                    {deleteAlert && <Alert 
-                        handler={this.handleAlert}
-                        title='게임 삭제'
-                        content={`'${this.state.games.filter(game => game.id === this.state.deleteId)[0].title}' 을(를) 삭제하시겠습니까?`}
-                        text='삭제'
-                    />}
-                    <header>
-                        게임 관리
-                        <Link to={'/admin/games/create'} className='button'>추가</Link>
-                    </header>
-                    <div className='list'>
-                        <input id='search' placeholder='게임을 검색해보세요' value={search} onChange={this.handleSearch}></input>
-                        <div>
-                        {games && games.map((game, index) => {
-                            if (game.title.toLowerCase().includes(search)) {
-                                return (<div key={index} className='item'>
-                                    <Link to={`/admin/games/${game.id}/read`} className='admin-games-item-title'>{game.title}</Link>
-                                    <div className='buttons'>
-                                        <Link to={`/admin/games/${game.id}/update`} className='button'>수정</Link>
-                                        <div className='button' data-id={game.id} onClick={this.deleteAlert}>삭제</div>
-                                    </div>
-                                </div>)
-                            } else {
-                                return null;
-                            }   
-                        })}
-                        </div>
+        const { games,search, deleteAlert } = this.state;           
+        return (
+            <section id='admin-games'>
+                {deleteAlert && <Alert 
+                    handler={this.handleAlert}
+                    title='게임 삭제'
+                    content={`'${this.state.games.filter(game => game.id === this.state.deleteId)[0].title}' 을(를) 삭제하시겠습니까?`}
+                    text='삭제'
+                />}
+                <header>
+                    게임 관리
+                    <Link to={'/admin/games/create'} className='button'>추가</Link>
+                </header>
+                <div className='list'>
+                    <input id='search' placeholder='게임을 검색해보세요' value={search} onChange={this.handleSearch}></input>
+                    <div>
+                    {games && games.map((game, index) => {
+                        if (game.title.toLowerCase().includes(search)) {
+                            return (<div key={index} className='item'>
+                                <Link to={`/admin/games/${game.id}/read`} className='admin-games-item-title'>{game.title}</Link>
+                                <div className='buttons'>
+                                    <Link to={`/admin/games/${game.id}/update`} className='button'>수정</Link>
+                                    <div className='button' data-id={game.id} onClick={this.deleteAlert}>삭제</div>
+                                </div>
+                            </div>)
+                        } else {
+                            return null;
+                        }   
+                    })}
                     </div>
-                </section>
-            )
-        }
+                </div>
+            </section>
+        )
     }
 }
 export default Games;

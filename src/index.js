@@ -17,6 +17,8 @@ import Games from './components/Games';
 import Talks from './components/Talks';
 import ReadTalks from './components/Talks/Read';
 
+import Login from './routes/Login'
+
 ReactDOM.render(<React.Fragment>
     <Router>
         <React.Fragment>
@@ -35,6 +37,8 @@ ReactDOM.render(<React.Fragment>
                 <Route path='/admin/games/create' component={AdminGamesCreate} />
                 <Route exact path='/talks' component={Talks} />
                 <Route path='/talks/:id/read' component={ReadTalks} />
+
+                <Route path='/login' component={Login} />
                 {/*
                 <Route path='/games/recommend' component={} />
                 <Route path='/games/explore' component={} />

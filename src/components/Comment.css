@@ -1,6 +1,6 @@
 #comment-form {
     width: 100%;
-    background-color: var(--base-2);
+    background-color: #2F3135;
     color: white;
     border-radius: 4px;
     overflow: hidden;
@@ -9,9 +9,8 @@
 
 #comment-input {
     overflow: hidden;
-    height: 64px;
-    line-height: 64px;
-    border-bottom: 2px solid var(--base-4);
+    height: 48px;
+    line-height: 48px;
 }
 
 #comment-input > input {
@@ -19,23 +18,26 @@
     width: calc(100% - 128px);
     border-radius: 0;
     border: none;
-    background-color: inherit;
+    background-color: rgba(0,0,0,0.1);
+    margin: 0;
     color: inherit;
     height: 100%;
     padding: 0 16px;
     box-sizing: border-box;
+    border-right: 1px solid rgba(0,0,0,0.2);
 }
 
 #comment-input > div {
     float: left;
     width: 96px;
-    height: 32px;
-    line-height: 32px;
-    margin: 16px;
+    height: 16px;
+    line-height: 16px;
+    padding: 16px;
     border-radius: 4px;
-    background-color: var(--point);
+    background-color: rgba(0,0,0,0.1);
     text-align: center;
     color: #fff;
+    cursor: pointer;
 }
 
 #comment-list > div {

@@ -6,8 +6,7 @@ import { Link } from 'react-router-dom'
 class Header extends Component {
     state = {
         menu: 'games',
-        games: [],
-        alert: true
+        games: []
     }
     loadGames = () => {
         fetch(`${api.host}/games`)
@@ -27,6 +26,7 @@ class Header extends Component {
                     <Link to ='/games'>games</Link>
                     <Link to ='/talks'>talks</Link>
                     <Link to ='/admin'>admin</Link>
+                    <Link to='/login'>Login</Link>
                 </div>
             </header>
         );

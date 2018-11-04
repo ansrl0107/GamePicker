@@ -1,0 +1,11 @@
+#post-content {
+    background-color: #2F3135;
+    margin: 0 16px 16px 16px;
+    padding: 16px;
+    border-radius: 4px;
+}
+
+#comment {
+    margin: 16px;
+    border-radius: 4px;
+}

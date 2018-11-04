@@ -45,9 +45,6 @@ class Games extends Component {
                         }
                     })}
                 </div>
-                <div id='login'>
-                    
-                </div>
             </nav> 
         )
     }

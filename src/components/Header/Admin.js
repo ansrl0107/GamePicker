@@ -14,9 +14,6 @@ class Admin extends Component {
                     <Link to='/admin/Tags' className='item'>Tags</Link>
                     <Link to='/admin/Platforms' className='item'>Platforms</Link>
                 </div>
-                <div id='login'>
-                    
-                </div>
             </nav> 
         )
     }

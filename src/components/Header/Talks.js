@@ -51,9 +51,6 @@ class Talks extends Component {
                         }
                     })}
                 </div>
-                <div id='login'>
-                    
-                </div>
             </nav> 
         )
     }
