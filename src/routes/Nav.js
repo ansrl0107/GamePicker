@@ -31,7 +31,7 @@ class Menu extends Component {
         ]        
         return (
             <nav>
-                <div id='home'><Link to='/'>Home</Link></div>
+                <div id='home'><Link to='/'>GamePicker</Link></div>
                 {menu.map((m, idx) => {
                     return (
                         <Section 

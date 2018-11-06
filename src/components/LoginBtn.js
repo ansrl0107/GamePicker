@@ -5,10 +5,11 @@ import './LoginBtn.css'
 class LoginBtn extends Component {
     state = {
         login: false,
-        dropdown: false
+        dropdown: false,
+        data: {}
     }
     componentDidMount = () => {
-        this.status();
+        this.checkLogin();
     }
     loadMe = () => {
         const token = sessionStorage.getItem('token');
@@ -22,7 +23,7 @@ class LoginBtn extends Component {
         })
     }
     handleClick = () => {
-        if (this.state.login) {
+        if (this.state.login) {            
             this.setState({
                 dropdown: !this.state.dropdown
             })
@@ -30,22 +31,49 @@ class LoginBtn extends Component {
             this.props.history.push('/login');
         }
     }
-    status = () => {
-        const token = sessionStorage.getItem('token');
-        if (token) {
+    checkLogin = () => {
+        const token = sessionStorage.getItem('token');        
+        if (token) {            
             this.setState({
                 login: true
             })
+            fetch(`${api.host}/me`, {
+                headers: {
+                    'x-access-token': token
+                }
+            }).then(res => res.json())
+            .then(json => {
+                this.setState({
+                    data: json.data
+                })
+            })
         }
     }
-    render() {                
+    logout = () => {
+        sessionStorage.removeItem('token');
+        this.checkLogin();
+        this.setState({
+            login: false,
+            dropdown: false
+        })
+    }
+    render() {                        
+        const { name, email } = this.state.data;
+        const style = {
+            backgroundColor: this.state.login?'blue':'red'
+        }
         return (
             <div id='login-btn'>
-                <div className='status' onClick={this.handleClick}></div>
+                <div className='status' onClick={this.handleClick} style={style}></div>
                 {this.state.dropdown && <div className='dropdown'>
-                    <div>name</div>
-                    <div>내정보</div>
-                    <div>로그아웃</div>
+                    <div>
+                        <div>{name}</div>
+                        <div>{email}</div>
+                    </div>
+                    <ul>
+                        <li>내정보</li>
+                        <li onClick={this.logout}>로그아웃</li>
+                    </ul>
                 </div>}
             </div>
         )

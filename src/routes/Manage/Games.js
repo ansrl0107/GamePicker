@@ -62,7 +62,7 @@ class Games extends Component {
     render() {        
         const { games,search, deleteAlert } = this.state;                           
         return (
-            <section id='admin-games'>
+            <React.Fragment>
                 {deleteAlert && <Alert 
                     handler={this.handleAlert}
                     title='게임 삭제'
@@ -74,15 +74,15 @@ class Games extends Component {
                     <Link to={'/manage/games/create'} className='button'>추가</Link>
                     <LoginBtn history={this.props.history}/>
                 </header>
-                <div className='list'>
+                <section>
                     <div className='container'>
                     {games && games.map((game, index) => {
                         if (game.title.toLowerCase().includes(search)) {
                             return (<div key={index} className='item'>
                                 <Link to={`/manage/games/${game.id}/read`} className='title'>{game.title}</Link>
                                 <div className='buttons'>
-                                    <Link to={`/manage/games/${game.id}/update`} className='button'>수정</Link>
-                                    <div className='button' data-id={game.id} onClick={this.deleteAlert}>삭제</div>
+                                    <Link to={`/manage/games/${game.id}/update`} className='textbutton'>수정</Link>
+                                    <div className='textbutton' data-id={game.id} onClick={this.deleteAlert}>삭제</div>
                                 </div>
                             </div>)
                         } else {
@@ -90,8 +90,8 @@ class Games extends Component {
                         }   
                     })}
                     </div>
-                </div>
-            </section>
+                </section>
+            </React.Fragment>
         )
     }
 }

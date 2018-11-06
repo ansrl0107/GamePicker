@@ -48,8 +48,8 @@ class Login extends Component {
                 {this.state.alert && <Alert handler={this.handleAlert} title='로그인 실패!' content={this.state.alert}/>}
                 <div id='login-form' className='list'>
                     <input placeholder='이메일을 입력해주세요' name='email' onChange={this.handleInput} value={email}></input>
-                    <input placeholder='비밀번호를 입력해주세요' name='password' onChange={this.handleInput} value={password}></input>
-                    <div className='button' onClick={this.login}>로그인</div>
+                    <input placeholder='비밀번호를 입력해주세요' type='password' name='password' onChange={this.handleInput} value={password}></input>
+                    <div className='button fill' onClick={this.login}>로그인</div>
                 </div>
             </section>
         )

@@ -4,6 +4,7 @@
 	margin: 10px;
 	box-sizing: border-box;
     cursor: pointer;
+    float: right;
 }
 
 #login-btn .status {
@@ -21,22 +22,31 @@
     border-radius: 4px;
     position: relative;
     top: 20px;
-    right: 150px;
+    right: 140px;
     box-shadow: 0 2px 8px rgba(0,0,0,.1);
 }
 
 #login-btn .dropdown > div:first-child {
+    padding: 10px;
     border-bottom: 1px solid #dfdfdf;
-    height: 50px;
-    line-height: 50px;
     font-size: 1em;
+    line-height: 1em;
 }
 
-#login-btn .dropdown > div {
+#login-btn .dropdown > div:first-child > div:last-child {
+    font-size: 0.8em;
+    color: #999;
+}
+
+#login-btn .dropdown ul {
+    padding-top: 10px;
+}
+
+#login-btn .dropdown li {
     height: 30px;
-    width: 200px;
+    width: 180px;
     line-height: 30px;
     padding: 0 10px;
     box-sizing: border-box;
-    font-size: 0.8em;
+    font-size: 0.9em;
 }
