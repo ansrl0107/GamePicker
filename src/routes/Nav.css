@@ -1,0 +1,9 @@
+nav {
+    height: 100%;
+    width:  200px;
+    background-color: #021B4D;
+}
+
+nav > * {
+    width: 100%;
+}

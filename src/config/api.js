@@ -1,3 +1,3 @@
 export default {
-    host: 'https://gamepicker-api.appspot.com'
+    host: 'http://178.128.220.14:3333'
 }

@@ -2,43 +2,20 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
-import Header from './components/Header';
 
-import GamesMenu from './components/Header/Games';
-import TalksMenu from './components/Header/Talks';
-import AdminMenu from './components/Header/Admin';
+import Nav from './routes/Nav';
 
-import AdminGames from './components/Admin/Games';
-import AdminGamesRead from './components/Admin/Games/read';
-import AdminGamesUpdate from './components/Admin/Games/update';
-import AdminGamesCreate from './components/Admin/Games/create';
-
-import Games from './components/Games';
-import Talks from './components/Talks';
-import ReadTalks from './components/Talks/Read';
+import ManageGames from './routes/Manage/Games'
 
 import Login from './routes/Login'
 
 ReactDOM.render(<React.Fragment>
     <Router>
         <React.Fragment>
-            <Header />
+            <Nav />
             <Switch>
-                <Route path='/games' component={GamesMenu} />
-                <Route path='/talks' component={TalksMenu} />
-                <Route path='/admin' component={AdminMenu} />
-            </Switch>
-            
-            <Switch>
-                <Route path='/games/:id' component={Games} />
-                <Route exact path='/admin/games' component={AdminGames} />
-                <Route path='/admin/games/:id/read' component={AdminGamesRead} />
-                <Route path='/admin/games/:id/update' component={AdminGamesUpdate} />
-                <Route path='/admin/games/create' component={AdminGamesCreate} />
-                <Route exact path='/talks' component={Talks} />
-                <Route path='/talks/:id/read' component={ReadTalks} />
-
                 <Route path='/login' component={Login} />
+                <Route path='/manage/games' component={ManageGames} />
                 {/*
                 <Route path='/games/recommend' component={} />
                 <Route path='/games/explore' component={} />

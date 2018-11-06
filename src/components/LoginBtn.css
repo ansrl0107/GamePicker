@@ -1,0 +1,42 @@
+#login-btn {
+    width: 60px;
+	height: 40px;
+	margin: 10px;
+	box-sizing: border-box;
+    cursor: pointer;
+}
+
+#login-btn .status {
+    background-color: #aaa;
+    height: 40px;
+    width: 40px;
+    border-radius: 20px;
+}
+
+#login-btn .dropdown {
+    width: fit-content;
+    padding: 10px 0;
+    border: 1px solid #dfdfdf;
+    background-color: #fff;
+    border-radius: 4px;
+    position: relative;
+    top: 20px;
+    right: 150px;
+    box-shadow: 0 2px 8px rgba(0,0,0,.1);
+}
+
+#login-btn .dropdown > div:first-child {
+    border-bottom: 1px solid #dfdfdf;
+    height: 50px;
+    line-height: 50px;
+    font-size: 1em;
+}
+
+#login-btn .dropdown > div {
+    height: 30px;
+    width: 200px;
+    line-height: 30px;
+    padding: 0 10px;
+    box-sizing: border-box;
+    font-size: 0.8em;
+}
