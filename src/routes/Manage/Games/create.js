@@ -142,7 +142,7 @@ class Create extends Component {
                                 isMulti={true}
                                 onChange={this.handlePlatforms}
                             />
-                            <div className='button fill'>추가</div>
+                            <div className='button fill' onClick={this.createGame}>추가</div>
                         </div>
                     </section>
                 </React.Fragment>
