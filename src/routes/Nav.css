@@ -1,16 +1,28 @@
 nav {
     height: 100%;
-    width:  200px;
-    background-color: #021B4D;
+    width:  96px;
+    background-color: #3A3A3A;
 }
 
 nav > * {
     width: 100%;
 }
 
+nav .icon {
+    width: 64px;
+    height: 64px;
+    margin: 16px;
+    margin-bottom: 32px;
+}
+
 nav #home {
-    color: white;
-    padding: 20px;
-    font-size: 1.2em;
-    font-weight: bold;
+    background-image: url('../resource/logo.png');
+}
+
+nav #talks {
+    background-image: url('../resource/talks.png')
+}
+
+nav #games {
+    background-image: url('../resource//games.png');
 }

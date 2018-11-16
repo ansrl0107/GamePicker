@@ -1,0 +1,124 @@
+#post-tools, #post-list {
+    background-color: #fff;
+    box-shadow: 0 1px 3px 0 rgba(0,0,0,.15);
+    width: 100%;
+}
+
+#post-tools {
+    padding: 8px;
+    margin-bottom: 8px;
+    box-sizing: border-box;
+}
+
+#post-tools > div:first-child {
+    margin-bottom: 16px;
+}
+
+#post-tools #post-category {
+    font-weight: bold;
+    line-height: 32px;
+}
+
+#post-tools #post-create {
+    float: right;
+    background-image: url('../../resource/create.png');
+    background-size: cover;
+    height: 24px;
+    width: 24px;
+    margin: 4px;
+}
+
+#post-tools > div {
+    overflow: hidden;
+}
+
+#post-tools > div > div {
+    float: left;
+}
+
+#post-sort {
+    overflow: hidden;
+    line-height: 32px;
+}
+
+#post-sort > * {
+    float: left;
+    margin-right: 8px;
+}
+
+#post-tools #post-search {
+    overflow: hidden;
+    height: 32px;
+    float: right;
+    border: 1px solid #ebeef1;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+#post-tools #post-search > * {
+    float: left;
+    height: 32px;
+}
+
+#post-tools #post-search > select {
+    border-radius: 0;
+    background-color: #fff;
+    width: 64px;
+    border: none;
+    padding: 0 16px;
+}
+
+#post-tools #post-search > input {
+    width: 300px;
+    border: none;
+    border-radius: 0;
+    background-color: #ebeef1;
+    font-size: 0.8em;
+}
+
+#post-tools #post-search > div {
+    border: none;
+    width: 32px;
+    box-sizing: border-box;
+    background-color: #ebeef1;
+}
+
+#post-tools #post-search > div > div {
+    width: 16px;
+    height: 16px;
+    margin: 8px;
+    background-image: url('../../resource/search.png');
+    background-size: cover;
+}
+
+#post-list > article {
+    border-top: 1px solid #eee;
+    padding: 8px 16px;
+}
+
+#post-list > article:first-child {
+    border-top: none;
+}
+
+#post-list > article > div {
+    width: 100%;
+    overflow: hidden;
+    margin: 8px 0;
+}
+
+#post-list > article > div > * {
+    float: left;
+}
+
+#post-list > article > div:last-child {
+    height: 20px;
+    line-height: 20px;
+    width: auto;
+}
+
+
+#post-list > article > div:last-child > *:not(:last-child) {
+    border-right: 1px solid #dfdfdf;
+    padding-right: 4px;
+    margin-right: 4px;
+}

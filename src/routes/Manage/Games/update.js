@@ -111,9 +111,6 @@ class Update extends Component {
         } else {
             return (
                 <React.Fragment>
-                    <header>
-                        <div className='title'>게임 수정</div>
-                    </header>
                     <section>
                         <div className='container'>
                             <div className='index'>제목</div>

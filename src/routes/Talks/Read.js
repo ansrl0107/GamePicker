@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import api from '../../config/api';
-import Comment from '../Comment';
-import './Read.css'
+import api from '../../config/api'
+import './Read.css';
+import Comment from '../../components/Comment';
 
 class Read extends Component {
     state = {
@@ -42,20 +42,23 @@ class Read extends Component {
         })
     }
     render() {
-        const { post, id } = this.state;                
+        const { post } = this.state;        
         return (
-            <section>
-                <header>{post.title}</header>
-                <div className='list'>
-                    <div id='post-content'>
-                        {post.content}
-                    </div>
-                    <div id='comment'>
-                    <Comment
-                        baseURL={`${api.host}/posts/${id}`}
-                    />
-                    </div>
-                </div>
+            <section id='post-read'>
+                <section className='container'>
+                    <header>
+                        <h1>{post.title}</h1>
+                        <div id='post-meta'>
+                            <div>조회수 {post.views}</div>
+                            <div>수정일 {post.update_date}</div>
+                            <div>추천수 {post.recommend}</div>
+                        </div>
+                    </header>
+                    <article>{post.content}</article>
+                </section>
+                <section className='container'>
+                    <Comment baseURL={`${api.host}/posts/${this.props.match.params.id}`}></Comment>
+                </section>
             </section>
         )
     }

@@ -1,15 +1,13 @@
 import React, { Component } from 'react';
 import api from '../config/api';
 import './LoginBtn.css'
+import { withRouter } from 'react-router-dom';
 
 class LoginBtn extends Component {
     state = {
         login: false,
         dropdown: false,
         data: {}
-    }
-    componentDidMount = () => {
-        this.checkLogin();
     }
     loadMe = () => {
         const token = sessionStorage.getItem('token');
@@ -23,19 +21,10 @@ class LoginBtn extends Component {
         })
     }
     handleClick = () => {
-        if (this.state.login) {            
-            this.setState({
-                dropdown: !this.state.dropdown
-            })
-        } else {
-            this.props.history.push('/login');
-        }
-    }
-    checkLogin = () => {
         const token = sessionStorage.getItem('token');        
         if (token) {            
             this.setState({
-                login: true
+                dropdown: !this.state.dropdown
             })
             fetch(`${api.host}/me`, {
                 headers: {
@@ -47,20 +36,21 @@ class LoginBtn extends Component {
                     data: json.data
                 })
             })
+        } else {
+            this.props.history.push('/login');
         }
     }
     logout = () => {
         sessionStorage.removeItem('token');
-        this.checkLogin();
         this.setState({
-            login: false,
+            data: undefined,
             dropdown: false
         })
     }
     render() {                        
         const { name, email } = this.state.data;
         const style = {
-            backgroundColor: this.state.login?'blue':'red'
+            //backgroundImage: `url('${'../resource/user.png'}')`
         }
         return (
             <div id='login-btn'>
@@ -79,4 +69,4 @@ class LoginBtn extends Component {
         )
     }
 }
-export default LoginBtn;
+export default withRouter(LoginBtn);

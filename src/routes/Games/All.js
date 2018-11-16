@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import LoginBtn from '../../components/LoginBtn';
 import api from '../../config/api';
 import { Link } from 'react-router-dom';
 import './All.css';
@@ -32,10 +31,6 @@ class GamesAll extends Component {
         const { search, games } = this.state;        
         return (
             <React.Fragment>
-                <header>
-                    <input id='search' placeholder='게임을 검색해보세요' value={search} onChange={this.handleSearch}></input>
-                    <LoginBtn history={this.props.history}/>
-                </header>
                 <section id='game'>
                     <div className='container'>
                         {games.map((game, index) => {

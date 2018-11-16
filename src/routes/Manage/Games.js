@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import api from '../../config/api';
 import Alert from '../../components/Alert';
-import LoginBtn from '../../components/LoginBtn';
+import './Games.css'
 
 class Games extends Component {
     state = {
@@ -69,27 +69,25 @@ class Games extends Component {
                     content={`'${this.state.games.filter(game => game.id === this.state.deleteId)[0].title}' 을(를) 삭제하시겠습니까?`}
                     text='삭제'
                 />}
-                <header>
-                    <input id='search' placeholder='게임을 검색해보세요' value={search} onChange={this.handleSearch}></input>
-                    <Link to={'/manage/games/create'} className='button'>추가</Link>
-                    <LoginBtn history={this.props.history}/>
-                </header>
-                <section>
-                    <div className='container'>
+                <section id='manage-game'>
+                    <section id='game-list' className='list'>
                     {games && games.map((game, index) => {
                         if (game.title.toLowerCase().includes(search)) {
-                            return (<div key={index} className='item'>
+                            return (<article key={index} className='item'>
                                 <Link to={`/manage/games/${game.id}/read`} className='title'>{game.title}</Link>
                                 <div className='buttons'>
                                     <Link to={`/manage/games/${game.id}/update`} className='textbutton'>수정</Link>
                                     <div className='textbutton' data-id={game.id} onClick={this.deleteAlert}>삭제</div>
                                 </div>
-                            </div>)
+                            </article>)
                         } else {
                             return null;
                         }   
                     })}
-                    </div>
+                    </section>
+                    <section id='game-create'>
+                        <div className='button fill'>게임 추가</div>
+                    </section>
                 </section>
             </React.Fragment>
         )

@@ -1,0 +1,7 @@
+#post-read #post-meta {
+    overflow: hidden;
+}
+
+#post-read #post-meta > div {
+    float: left;
+}

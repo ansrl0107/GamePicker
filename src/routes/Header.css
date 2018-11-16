@@ -1,0 +1,7 @@
+#main-header {
+    width: calc(100% - 96px);
+    height: 64px;
+    z-index: 1;
+    position: relative;
+    box-shadow: 1px 2px 4px rgba(0,0,0,.1);
+}

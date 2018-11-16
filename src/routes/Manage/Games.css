@@ -1,0 +1,26 @@
+#manage-game .list {
+    height: calc(100% - 60px);
+    box-shadow: none;
+}
+
+#manage-game .item {
+    line-height: 50px;
+    margin: 0 16px;
+}
+
+#manage-game .item:hover {
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    background-color: #eee;
+}
+
+#manage-game .item:hover + .item {
+    border-top: none;
+}
+
+#manage-game #game-create {
+    padding: 0 16px;
+    background-color: #fff;
+    overflow: hidden;
+    border-top: 1px solid #eee;
+}
