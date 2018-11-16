@@ -9,7 +9,7 @@ class Create extends Component {
             title: '',
             developer: '',
             publisher: '',
-            age_rate: '',
+            age_rate: [],
             summary: '',
             img_link: '',
             video_link: '',
@@ -82,25 +82,24 @@ class Create extends Component {
             }
         })
     }
-    handleAge = (item) => {        
+    handleAge = (list) => {        
         this.setState({
             game: {
                 ...this.state.game,
-                age_rate: item.value
+                age_rate: list.map(item => {return item.value})
             }
         })
-        
     }
     render() {
         const age = ['전체이용가','12세이용가','15세이용가', '청소년이용불가', '심의등급없음'];
-        const { title, developer, publisher, summary, img_link, video_link, tags, platforms } = this.state.game;
+        const { title, developer, publisher, summary, age_rate, img_link, video_link, tags, platforms } = this.state.game;
         const allTags = this.state.tags.map(tag => {
             return {label: tag.value, value: tag.value}
         })
         
         const allPlatfroms = this.state.platforms.map(platform => {
             return {label: platform.value, value: platform.value}
-        })
+        })        
         if (this.state.redirect) {
             return <Redirect to='/manage/games'/>
         } else {
@@ -116,8 +115,10 @@ class Create extends Component {
                             <input placeholder='배포사을 입력해주세요' name='publisher' value={publisher} onChange={this.handleInput}></input>
                             <div className='index'>이용등급</div>
                             <Select
+                                values={age_rate.map(rate => {return {label: rate, value: rate}})}
                                 options={age.map(a => {return {label: a, value: a}})}
                                 onChange={this.handleAge}
+                                isMulti
                             />
                             <div className='index'>요약</div>
                             <textarea placeholder='요약을 입력해주세요' name='summary' value={summary} onChange={this.handleInput}></textarea>

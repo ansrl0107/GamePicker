@@ -74,9 +74,8 @@ class Games extends Component {
                     {games && games.map((game, index) => {
                         if (game.title.toLowerCase().includes(search)) {
                             return (<article key={index} className='item'>
-                                <Link to={`/manage/games/${game.id}/read`} className='title'>{game.title}</Link>
+                                <Link to={`/manage/games/${game.id}/update`} className='title'>{game.title}</Link>
                                 <div className='buttons'>
-                                    <Link to={`/manage/games/${game.id}/update`} className='textbutton'>수정</Link>
                                     <div className='textbutton' data-id={game.id} onClick={this.deleteAlert}>삭제</div>
                                 </div>
                             </article>)

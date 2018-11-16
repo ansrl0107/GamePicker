@@ -9,7 +9,6 @@ import Header from './routes/Header';
 import GamesAll from './routes/Games/All';
 
 import ManageGames from './routes/Manage/Games'
-import ManageGamesRead from './routes/Manage/Games/read'
 import ManageGamesCreate from './routes/Manage/Games/create'
 import ManageGamesUpdate from './routes/Manage/Games/update'
 
@@ -29,7 +28,6 @@ ReactDOM.render(<React.Fragment>
                 <Route path='/login' component={Login} />
                 <Route exact path='/manage/games' component={ManageGames} />
                 <Route path='/manage/games/create' component={ManageGamesCreate} />
-                <Route path='/manage/games/:id/read' component={ManageGamesRead} />
                 <Route path='/manage/games/:id/update' component={ManageGamesUpdate} />
 
                 <Route exact path='/talks' component={Talks} />

@@ -9,7 +9,7 @@ class Update extends Component {
             title: '',
             developer: '',
             publisher: '',
-            age_rate: '',
+            age_rate: [],
             summary: '',
             img_link: '',
             video_link: '',
@@ -31,6 +31,8 @@ class Update extends Component {
         .then(res => res.json())
         .then(json => {
             if (json.status === 'success') {
+                console.log(json.data);
+                
                 this.setState({
                     game: json.data
                 })
@@ -98,7 +100,16 @@ class Update extends Component {
             }
         })
     }
+    handleAge = (list) => {        
+        this.setState({
+            game: {
+                ...this.state.game,
+                age_rate: list.map(item => {return item.value})
+            }
+        })
+    }
     render() {
+        const age = ['전체이용가','12세이용가','15세이용가', '청소년이용불가', '심의등급없음'];
         const allTags = this.state.tags.map(tag => {
             return {label: tag.value, value: tag.value}
         })
@@ -120,7 +131,12 @@ class Update extends Component {
                             <div className='index'>배포</div>
                             <input placeholder='배포사을 입력해주세요' name='publisher' value={publisher} onChange={this.handleInput}></input>
                             <div className='index'>이용등급</div>
-                            <input placeholder='이용등급을 입력해주세요' name='age_rate' value={age_rate} onChange={this.handleInput}></input>
+                            <Select
+                                value={age_rate.map(rate => {return {label: rate, value: rate}})}
+                                options={age.map(a => {return {label: a, value: a}})}
+                                onChange={this.handleAge}
+                                isMulti
+                            />
                             <div className='index'>요약</div>
                             <textarea placeholder='요약을 입력해주세요' name='summary' value={summary} onChange={this.handleInput}></textarea>
                             <div className='index'>이미지 링크</div>
