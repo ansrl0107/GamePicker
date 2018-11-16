@@ -92,7 +92,7 @@ class Create extends Component {
         
     }
     render() {
-        const age = ['전체이용가','12세 이용가','15세 이용가', '청소년이용불가', '심의등급없음'];
+        const age = ['전체이용가','12세이용가','15세이용가', '청소년이용불가', '심의등급없음'];
         const { title, developer, publisher, summary, img_link, video_link, tags, platforms } = this.state.game;
         const allTags = this.state.tags.map(tag => {
             return {label: tag.value, value: tag.value}
@@ -117,7 +117,6 @@ class Create extends Component {
                             <div className='index'>이용등급</div>
                             <Select
                                 options={age.map(a => {return {label: a, value: a}})}
-                                isClearable
                                 onChange={this.handleAge}
                             />
                             <div className='index'>요약</div>
@@ -130,7 +129,6 @@ class Create extends Component {
                             <Select 
                                 value={tags.map(tag => {return {label: tag, value: tag}})}
                                 options={allTags}
-                                isClearable={true}
                                 isMulti={true}
                                 onChange={this.handleTags}
                             />
@@ -138,7 +136,6 @@ class Create extends Component {
                             <Select 
                                 value={platforms.map(platform => {return {label: platform, value: platform}})}
                                 options={allPlatfroms}
-                                isClearable={true}
                                 isMulti={true}
                                 onChange={this.handlePlatforms}
                             />
