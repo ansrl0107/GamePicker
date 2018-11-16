@@ -86,7 +86,7 @@ class Games extends Component {
                     })}
                     </section>
                     <section id='game-create'>
-                        <div className='button fill'>게임 추가</div>
+                        <Link to='/manage/games/create' className='button fill'>게임 추가</Link>
                     </section>
                 </section>
             </React.Fragment>
