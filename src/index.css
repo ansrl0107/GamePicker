@@ -20,7 +20,7 @@ body {
 }
 
 #root > section {
-	width: calc(100% - 96px);
+	width: calc(100% - 128px);
 	height: calc(100% - 64px);
 	overflow-y: scroll;
 	position: relative;
